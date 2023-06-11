@@ -1,13 +1,1190 @@
-body {
+html,body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+
+}
+/* body::-webkit-scrollbar {
+  display: none;
+} */
+/* due to the animation at the start of the page
+i removed the scroll bars in the site to make it less noticable
+*/
+.landing{
+  height: 800px;
+  padding: 0 10%;
+  /* width: 80%; */
+  filter: brightness(90%);
+  background-size: cover;
+  background-attachment: fixed; 
+  /* remove background attachment if you don tlike sliding background */
+  background-repeat: no-repeat;
+}
+/*Header section*/
+/* Navigation */
+
+.bg-div{
+  background:transparent;
+  overflow: hidden;
+  border-bottom: 1px solid white;
+  display: flex;
+}
+.NavbarContainer {
+  opacity: 100;
+  width: auto;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  border-bottom: 1px solid white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar {
+  height: 60px;
+  background-color: transparent;
+  position: relative;
+}
+
+.logo {
+  width: 20%;
+  display: flex;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.nav-elements {
+  flex: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-elements ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  width: auto;
+}
+.nav-elements ul a {
+  color: white;
+  display: block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+.nav-elements ul a.active {
+  color: orangered;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-elements ul a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: orangered;
+}
+.landUl{
+  margin: 0;
+  padding: 0;
+
+}
+.landLi{
+  display: inline-block;
+  position: relative;
+  list-style-type: none;
+}
+.landLi::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom;
+  transition: transform 0.25s ease-out;
+}
+.landLi:hover::after{
+  transform: scaleX(1);
+  transform-origin: bottom ;
+}
+
+/* code for the hamburger icon starts*/
+.hamburger{
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  align-self:center ;
+  display: none;
+  border: 3px solid white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: pointer;
+  transform: scale(.8);
+}
+.hamburger:after{
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%;
+  border-radius:50% ;
+  border: 3px solid white;
+  animation: hamburger_pulse 1s ease infinite;
+}
+.hamburger .bar{
+  height: 2px;
+  width: 30px;
+  position: relative;
+  background-color: white;
+  z-index: -1;
+}
+.hamburger .bar::after,
+.hamburger .bar::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background-color: white;
+  transition: .3s ease;
+  transition-property: top, bottom;
+}
+.hamburger .bar::after{
+  top: 8px;
+}
+.hamburger .bar::before{
+  bottom: 8px;
+}
+.hamburger.active .bar::before,
+.hamburger.active .bar::after{
+  top: 0;
+  bottom: 0;
+}
+
+/* code for the hamburger icon end*/
+/*END OF Nav*/
+.introBox{
+
+  height: 65%;
+  width: 100%;
+  margin: 5% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Ibox1{
+  height: auto;
+  flex: 45%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  
+}
+.Ibox1 p{
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  font-size: 3rem;
+  color: white;
+  font-weight: 700;
+}
+.Ibox2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  flex: 45%;
+  background-color: transparent;
+  /* overflow: hidden; */
+}
+.Ibox2 .mapDiv {
+  border: 1px solid white;
+  height: 65%;
+  width: 90%;
+  border-radius: 20px;
+}
+.Ibox2 .mapDiv img{
+  object-fit: cover;
+  height: 100%;
+  max-height: 400px;
+  width: 100%;
+  border-radius: 15px;
+}
+.Ibox2 .mapOptions{
+  display: flex;
+  margin-top: 5%;
+  height: 15%;
+  width: 90%;
+  /* border: 5px solid red; */
+}
+.mapOptions .mO1{
+  height: 100%;
+  flex: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gainsboro;
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.mapOptions button{
+  width: 100%;
+  height: 100%;
+  font-size: 1.3rem;
+  background: white;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  color: black;
+}
+
+.mapOptions ul{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  background: #ccc;
+  transform-origin: top;
+  transform: perspective(1000px) rotateX(-90deg);
+  transition: 0.5s;
+}
+
+.mapOptions ul.active{
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.mapOptions ul li {
+  list-style: none;
+}
+
+.mapOptions ul li a {
+  display:block;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  background: white;
+  color: black;
+  border-bottom: 1px solid rgba(0, 0, 0,.2);
+  transition: 0.5s;
+}
+
+.mapOptions ul li a:hover{
+  background: #0d7ad0;
+}
+.mapOptions .mO2{
+  height: 100%;
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gainsboro;
+  background-color: white;
+}
+.mapOptions .mO3{
+  height: 100%;
+  flex: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gainsboro;
+  background-color: skyblue;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+} 
+.MLC{
+  height: auto;
+  /* min-height: 650px; */
+  padding: 0 10%;
+  padding-bottom: 5%;
+  width: 80%;
+  /* border: 2px solid red; */
+}
+.MLCBT{ /* it means mlc big text */
+  font-size: 2rem;
+  font-weight: 800;
+}
+.MLCBT span{
+  border-bottom: 2px solid orangered;
+}
+.MLCContentBox{
+  /* min-height: 430px; */
+  width: 100%;
+  display: flex;
+  /* border: 2px solid red; */
+}
+
+.MLCbox1{
+  display: flex;
+  background-color: transparent;
+  height: auto;
+  flex: 20%;
+  justify-content: center;
+  align-items: center;
+}
+.MLCbox1 img{
+  height: 430px;
+  display: flex;
+}
+.MLCbox2{
+  display: flex;
+  background-color: transparent ;
+  height: 100%;
+  flex: 55%;
+  align-content: center;
+  justify-content: center;
+}
+.grid-container {
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: transparent;
+}
+.grid-item {
+  background-color: transparent;
+  margin: 5px;
+  display: flex;
+  height: auto;
+  width: auto;
+  justify-content: center;
+  flex-direction: column;
+}
+/* .itemContent{
+  border: 4px solid orange;
+} */
+.iconBox{
+  height: 67px;
+  width: 67px;
+  border-radius: 5px;
+  box-shadow: 4px 8px 12px gray;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-bottom: 30px;
+  background-color: white;
+}
+.iconBox img{
+  height: 30px;
+  width: 30px;
+  object-fit: contain;
+}
+.textBox{
+  display: flex;
+  background-color: white;
+  word-wrap: break-word;
+}
+.textBox p{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.LOP{
+  padding: 3% 10%;
+  width: 80%;
+  height: auto;
+  background-color: #F5F5F5;
+}
+.LOPtopCont{
+  min-height: 60px;
+  width: 98%;
+  padding: 0% 2%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.ViewPropertyBtn{
+  background-color: #F4511E;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 10px;
+  max-width: 170px;
+  height: 55px;
+  cursor: pointer;
+  margin: 2% 0;
+}
+.LOPgrid-container {
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: transparent;
+}
+.LOPgrid-item {
+  background-color: transparent;
+  margin: 5px;
+  display: flex;
+  height: auto;
+  width: auto;
+  justify-content: center;
+  flex-direction: column;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: auto;
+  height: auto;
+  margin: 20px;
+  border-radius: 5%;
+  overflow: hidden;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card > img {
+  object-fit: contain;
+  /* height: auto;
+  width: auto; */
+  background-color: transparent;
+  width: 100%;
+  height: auto;
+  padding: 0;
+}
+.cardContentBox{
+  height: auto;
+  padding: 0px 20px;
+  margin: 0;
+  /* border: 2px solid black; */
+}
+.cardContentBox h4{
+  font-size: 1.3rem;
+  margin: 5% 0;
+}
+.cardContentBox p{
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.6420748233795166px;
+  color: #818181;
+}
+.featureBox{
+  height: 50px;
+  width: 100%;
+  border-top: 1px solid black;
+  display: flex;
+  flex-direction: row;
+}
+.Fbox1{
+  display: flex;
+  height: auto;
+  flex: 33.3;
+  border-right: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: baseline;
+}
+.Fbox2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  flex: 33.3;
+  display: flex;
+  border-right: 1px solid black;
+}
+.Fbox3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  flex: 33.3;
+  display: flex;
+}
+.featureBox img{
+  height: auto;
+  object-fit: contain;
+  margin: 5px;
+}
+.featureBox span{
+  font-weight: 700;
+}
+.paginationBox{
+  height: 50px;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination .pbtn {
+  color: orangered;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid rgb(169, 166, 166);
+}
+
+.pagination .pbtn.pactive {
+  background-color: orangered;
+  color: white;
+  border: 1px solid orangered;
+}
+
+
+
+.pagination .pbtn:hover:not(.pactive) {background-color: #ddd;}
+
+
+
+.pagination .pbtn:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination .pbtn:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.Flexibility{
+  height: auto;
+  padding: 2% 10%;
+  width: 80%;
+  /* border: 2px solid red; */
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+}
+.Flexibox1{
+  height: auto;
+  width: 55%;
+  display: flex;
+  background-color: transparent;
+  /* border: 1px solid green; */
+  /* justify-content: space-around; */
+}
+.imgBox1 img{
+  margin: 10px;
+  object-fit: contain;
+  width: 40%;
+  height: auto;
+  padding: 0;
+}
+
+.Flexibox2{
+  height: auto;
+  width: 45%;
+  /* border: 1px solid black; */
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 10px;
+  padding-right: 20px;
+}
+.Flexibox2 h1{
+  font-weight: 700;
+  font-size: 2rem;
+}
+.Flexibox2 p{
+  font-size: 1.1rem;
+}
+.FlexiBtn{
+  background-color: #F4511E;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  height: 55px;
+  width: 150px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+.Property{
+  height: auto;
+  width: 100%;
+  /* border: 2px solid green; */
+  margin: 0 10%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.Pp{
+  padding: 20px 0px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+/*START OF FORM BOX*/
+.formBox{
+  height: auto;
+  width: 80%;
+  /* border: 2px solid black; */
+  background-color: transparent;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  /* padding: 10px; */
+}  
+.form {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  grid-template-columns: auto auto auto;
+  grid-gap: 30px;
+  margin: 5% 10%;
+}
+.Dfullwidth {
+  grid-column: span 3;
+  min-height: 200px;
+}
+.fullwidth {
+  grid-column: span 3;
+  /* min-height: 200px; */
+  border: 2px dotted orangered;
+  background-color: transparent;
+  height: 100px;
+}
+.submit {
+  grid-column: 2;
+  background-color:#F4511E ;
+  padding: 15px 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  font-size: large;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.Box{
+  display: flex;
+  flex-direction: column;
+}
+label{
+  display: inline;
+  font-weight: bold;
+}
+input{
+  display: inline-block;
+}
+textarea{
+  padding: auto;
+  min-height: 80px;
+  width: 100%;
+  resize: vertical;
+  grid-column: span 3;
+  background-color: #E6E6E6;
+  border: 2px solid #d8d7d7;
+  border-radius: 5px;  
+}
+input, select, option {
+  padding: 5px;
+  height: 35px;
+  background-color: #E6E6E6;
+  border: 2px solid #d8d7d7;
+  border-radius: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.fullwidth {
+  position: absolute;
+  filter: alpha(opacity=0);
+  display: none;
+  /* opacity: 0; */
+}
+
+.fullwidth + .fullwidthLabel {
+text-align: center;
+cursor: pointer;
+border: 2px dotted orangered;
+background-color: transparent;
+padding: 30px;
+border-radius: 3px;
+}
+.fullwidthLabel{
+  grid-column: span 3;
+}
+/*END OF FORM BOX*/
+
+.Comments{
+  height: 65%;
+  /* height: 500px; */
+  min-height: 500px;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  margin: 10% 0;
+}
+.Cbox1{
+  height: auto;
+  flex: 65%;
+  background-color: #F4511E12;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+.Cbox2{
+  height:auto;
+  flex: 35%;
+  background-color: transparent;
+  padding: 0;
+
+}
+.Cbox2 img{
+  height: auto;
+  min-height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow {
+  width: 80%;
+  height: 80%;
+  position: relative;
+  margin: auto;
+}
+.slides-container {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  min-height: 80%;
+  height: fit-content;
+  width: 100%;
+  background-color: transparent;
+  justify-content: space-evenly;
+}
+.slides-container p{
+  font-family: Inter;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left; 
+}
+.slide {
+  width: 100%;
+  transition: opacity 0.3s ease-in-out;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  flex-direction: column;
+  justify-content: center;
+  display: none;
+}
+
+.slide.active {
+  display: flex;
+}
+
+.testimonialContainer img{
+  min-height: 61px;
+}
+.comma {
+color: #f2f2f2;
+font-size: 1px;
+padding: 8px 12px;
+position: absolute;
+top: 20px;
+left: -40px;
+}
+.comma img{
+  height: 48px;
+  opacity: 30%;
+}
+/* The dots/bullets/indicators */
+.DotContainer{
+  height: auto;
+  width: 100%;
+}
+.dot {
+cursor: pointer;
+height: 10px;
+width: 10px;
+margin: 0 2px;
+background-color: #bbb;
+border-radius: 50%;
+display: inline-block;
+transition: background-color 0.6s ease;
+/* margin-bottom: 5%; */
+}
+
+.dot.active, .dot:hover {
+background-color: orangered;
+}
+/* Fading animation */
+.fade {
+animation-name: fade;
+animation-duration: 1.5s;
+}
+
+@keyframes fade {
+from {opacity: .4} 
+to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+.prev, .next,.text {font-size: 11px}
+}
+/* Style the container with a rounded border, grey background and some padding and margin */
+/* Clear floats after containers */
+.testimonialContainer{
+  height: 70px;
+  width: 100%;
+  background-color: transparent;
+}
+/* Float images inside the container to the left. Add a right margin, and style the image as a circle */
+.testimonialContainer img {
+  float: left;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  margin-right: 2%;
+}
+.testimonialDetails{
+  display: flex;
+  flex-direction: column;
+}
+.testimonialName{
+  font-weight: bold;
+   color: darkorange;
+    font-size: 1.2rem;
+}
+.testimonialTitle{
+  font-size: 1rem;
+}
+/* Increase the font-size of a span element */
+.TCD {
+  height: 65px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly
+}
+
+/* Add media queries for responsiveness. This will center both the text and the image inside the container */
+@media (max-width: 500px) {
+  .TestifierContainer {
+    text-align: center;
+  }
+
+  .TestifierContainer img {
+    margin: auto;
+    float: none;
+    display: block;
+  }
+}
+
+.footer{
+  height: 80%;
+  min-height: 400px;
+  width: 80%;
+  border-top: 3px solid orangered;
+  margin: 5% 10%;
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  justify-content: space-between;
+}
+.fbox1{
+  height: auto;
+  flex: 20%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 0 90px;
+}
+.flogoBox{
+  background-color: orangered;
+  width: 180px;
+  height: 80px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fbox1 img{
+  width: 145px;
+  height: 50px;
+}
+.fbox2{
+  height: auto;
+  flex: 45%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.fbox2 span{
+  margin: 2%;
+}
+.fbox2 img{
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  padding: 0px 5px;
+}
+.fbox2SMImgs{
+  cursor:pointer ;
+}
+.Bottom{
+
+  height: 80%;
+  min-height: 70px;
+  width: 80%;
+  padding-bottom: 2%;
+  border-top: 1px solid #7BB9FC;
+  margin: 3% 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.BNavUL{
+  padding: 0;
+}
+.BNavUL, .BNavLi{
+  list-style-type: none;
+  display: inline-block;
+}
+.BNavLi > a {
+  padding: 10px 15px;
+  margin: 0;
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+.BNavLi > a:hover{
+  color: darkorange;
+}
+
+/* tablet responsive code */
+@media (min-width: 1465px) {
+  .NavbarContainer{
+    justify-content: space-between;
+  }
+  .nav-elements, .nav-elements ul{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .Ibox1 p{
+      font-size: 2rem;
+  }
+  .grid-container {
+      grid-template-columns: auto auto;
+  }
+  .LOPgrid-container {
+      grid-template-columns: auto auto;
+  }
+  .Flexibox2{
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+  }
+  .form{
+      grid-template-columns: auto auto;
+  }
+  .Dfullwidth, .fullwidth, .submit{
+      grid-column: span 2;
+  }
+  .fullwidthLabel{
+      grid-column: span 2;
+  }
+  .Bottom{
+      flex-direction: column;
+  }
+}
+
+
+/* phone responsive code */
+@media (max-width: 850px) {
+  .hamburger{
+    display: flex;
+    z-index: 100;
+    cursor: pointer;
+  }
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+  .nav-elements {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: black;
+    width: 0px;
+    height: calc(100vh - 100px);
+    transition: all 0.3s ease-in;
+    overflow: hidden;
+  }
+  .nav-elements.active {
+    width: 100%;
+  }
+  .nav-elements ul {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: start;
+    align-items: start;
+  }
+  .nav-elements ul li {
+    margin-right: unset;
+    margin-top: 22px;
+  }
+  .nav-elements ul a{
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+  }
+  .nav-elements ul a::after{
+      content: attr(data-after);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      color: orangered;
+      opacity: 30%;
+      font-size: 10rem;
+      letter-spacing: 50px;
+      z-index: -1;
+      transition: .3s ease letter-spacing;
+  }
+  .nav-elements ul .landLi:hover a::after{
+      transform: translate(-50%, -50%) scale(1);
+      letter-spacing: initial;
+  }
+  .landLi::after{
+      height: 0px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .introBox{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .Ibox1 p{
+      text-align: center;
+      font-size: 2rem;
+  }
+  .mapOptions .dropdown button{
+      font-size: 1.1rem;
+  }
+  .MLCBT{
+      text-align: center;
+      font-size: 1.7rem;
+  }
+  .MLCContentBox{
+      flex-direction: column;
+  }
+  .MLCbox1{
+      display: none;
+  }
+  .MLCbox2{
+      justify-content: center;
+      align-items: center;
+  }
+  .grid-container {
+      grid-template-columns: auto auto; 
+  }
+  .LOPgrid-container {
+      grid-template-columns: auto auto;
+  }
+  .LOPtopCont{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .Flexibility{
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+  }
+  .Flexibox2{
+      width: 100%;
+      text-align: center;
+  }
+  .Pp{
+      text-align: center;
+  }
+  .form{
+      grid-template-columns: auto;
+  }
+  .Dfullwidth, .fullwidth, .submit{
+      grid-column: span 1;
+  }
+  .fullwidthLabel{
+      grid-column: span 1;
+  }
+  .Comments{
+      flex-direction: column;
+  }
+  .footer{
+      flex-direction: column;
+  }
+  .Bottom{
+      display: flex;
+      flex-direction: column;
+      margin-top: 5%;
+      align-self: center;
+      justify-self: center;
+      align-content: center;
+      justify-content: center;
+  }
+  .BNavUL, .BNavLi{
+      display: block;
+  }
+  .Bottom span{
+      text-align: center;
+  }
+
+
+
+}
+@media screen and (max-width: 600px){
+  .LOPgrid-container{
+      grid-template-columns:auto ;
+  }
+      .Flexibox1{
+      display: none;
+  }
+}
+@keyframes hamburger_pulse{
+  0%{
+      opacity: 1;
+      transform: scale(1);
+  }
+  100%{
+      opacity: 0;
+      transform: scale(1.5);
+  }
 }
