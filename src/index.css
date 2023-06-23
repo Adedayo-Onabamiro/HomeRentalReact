@@ -176,7 +176,6 @@ i removed the scroll bars in the site to make it less noticable
 /* code for the hamburger icon end*/
 /*END OF Nav*/
 .introBox{
-
   height: 65%;
   width: 100%;
   margin: 5% 0;
@@ -190,7 +189,7 @@ i removed the scroll bars in the site to make it less noticable
   background-color: transparent;
   display: flex;
   align-items: center;
-  
+  z-index: -10;
 }
 .Ibox1 p{
   display: flex;
@@ -208,6 +207,7 @@ i removed the scroll bars in the site to make it less noticable
   height: auto;
   flex: 45%;
   background-color: transparent;
+  z-index: -10;
   /* overflow: hidden; */
 }
 .Ibox2 .mapDiv {
@@ -1039,6 +1039,7 @@ to {opacity: 1}
     height: calc(100vh - 100px);
     transition: all 0.3s ease-in;
     overflow: hidden;
+
   }
   .nav-elements.active {
     width: 100%;
